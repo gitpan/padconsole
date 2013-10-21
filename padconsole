@@ -3,6 +3,8 @@
 use warnings;
 use strict;
 
+package App::PadConsole;
+
 use Getopt::Std;
 use File::Basename;
 
