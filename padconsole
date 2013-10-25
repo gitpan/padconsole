@@ -15,7 +15,7 @@ use DateTime;
 BEGIN {
     use Exporter ();
     use vars qw($VERSION);
-    $VERSION     = '0.03';
+    $VERSION     = '0.04';
 }
 
 $Getopt::Std::STANDARD_HELP_VERSION = 1;
@@ -450,6 +450,41 @@ Once the padconsole is launched, you can use this commands:
        alist                : print all the configured etherpads aliases
 
        current              : print configuration informations about the current etherpad instance
+
+=head1 CONFIGURATION FILE
+
+You can write it (that a simple YAML file), or launch padconsole with valid etherpad informations (options I<-e>, I<-k> and possibly I<-u> and I<-p>) and then use the I<writeconf> command.
+
+If you want to add instances, you can write them in the configuration file or launch padconsole with the informations and use I<writeconf>, it will push the new instance in the configuration file.
+
+    ---
+    instances:
+      beta:
+        url: http://pad1.example.com
+        key: KLJfdskldJKLjkfds634lnfdsqxdsnjk5
+        passwd: ~
+        user: ~
+      lite:
+        url: http://pad2.example.com
+        key: qSDHlfknsuIH290oitjepz6fqd3jeuzi
+        passwd: myuser
+        user: mypasswd
+
+=head1 INSTALLATION
+
+The better way to install it is by CPAN:
+
+    cpan App::padconsole
+
+You can install it manually:
+
+    wget https://github.com/ldidry/padconsole/archive/master.zip -O padconsole.zip
+    unzip padconsole.zip
+    cd padconsole-master
+    perl Makefile.PL
+    make
+    make test
+    make install
 
 =head1 BUGS and SUPPORT
 
